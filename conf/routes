@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET   /                                    controllers.Application.index
+
+GET   /books                               controllers.Books.getAllBooks
+GET   /books/:bookId                       controllers.Books.getBookById(bookId: String)
+GET   /books/:bookId/chapters              controllers.Books.getAllChapters(bookId: String)
+GET   /books/:bookId/chapters/:chapterId   controllers.Books.getChapterByBookAndChapter(bookId: String, chapterId: String)
+
+GET   /javascriptroutes                    controllers.Application.javascriptRoutes
+
+# Map static resources from the /public folder to the /assets URL path
+GET   /assets/*file                        controllers.Assets.at(path="/public", file)

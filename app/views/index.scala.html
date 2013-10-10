@@ -1,0 +1,32 @@
+@()
+
+@main("Book Server") {
+	<div class="row">
+		<div class="col-lg-12">
+		    <h1>Book Server</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-3">
+			<h3>Books</h3>
+			<div class="list-group" data-bind="foreach: allBooks">
+				<a href="#" class="list-group-item" data-bind="text: title, click: $parent.currentBook, css: $data === $parent.currentBook() ? 'active' : ''"></a>
+			</div>
+		</div>
+		<div data-bind="visible: currentPage() === 'chapters'">
+			<div class="col-lg-9" data-bind="with: currentBook">
+				<h3 data-bind="text: title"></h3>
+				<div class="list-group" data-bind="foreach: $parent.currentBookChapters">
+					<a href="#" class="list-group-item" data-bind="text: title, click: $root.currentChapter, css: $data === $root.currentChapter() ? 'active' : ''"></a>
+				</div>
+				<a href="#">Add chapter&hellip;</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12" data-bind="with: currentChapter">
+			<h3 contenteditable="true" data-bind="text: title"></h3>
+			<p contenteditable="true" data-bind="text: text"></p>
+		</div>
+	</div>
+}
