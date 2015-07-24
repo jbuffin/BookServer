@@ -13,7 +13,7 @@
 				<a href="#" class="list-group-item" data-bind="text: title, click: $parent.currentBook, css: $data === $parent.currentBook() ? 'active' : ''"></a>
 			</div>
 		</div>
-		<div data-bind="visible: currentPage() === 'chapters'">
+		<div class="col-lg-9" data-bind="visible: currentPage() === 'chapters'">
 			<div class="col-lg-9" data-bind="with: currentBook">
 				<h3 data-bind="text: title"></h3>
 				<div class="list-group" data-bind="foreach: $parent.currentBookChapters">
